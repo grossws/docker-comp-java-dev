@@ -4,6 +4,14 @@ Openjdk8 [Dockerfile][df] with dev-tools for automated builds on [docker hub][dh
 
 Based on `grossws/java` image.
 
+Current toolset:
+
+- [x] Apache Ant 1.10.0
+- [x] Apache Maven 3.3.9
+- [ ] Scala 2.11
+- [ ] SBT
+- [ ] Gradle
+
 Is part of the [docker-components][dcomp] repo.
 
 # Usage
