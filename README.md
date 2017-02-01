@@ -1,6 +1,6 @@
 # Info
 
-Openjdk8 [Dockerfiles][df] with dev-tools for automated builds on [docker hub][dhub].
+Openjdk8 [Dockerfile][df] with dev-tools for automated builds on [docker hub][dhub].
 
 Based on `grossws/java` image.
 
