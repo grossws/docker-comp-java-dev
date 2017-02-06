@@ -131,7 +131,7 @@ cleanup_tools() {
 
 if [ "$1" = "bootstrap-tools" ] ; then
   MVN_VERSION=3.3.9
-  ANT_VERSION=1.10.0
+  ANT_VERSION=1.10.1
   #IVY_VERSION=2.4.0
 
   fetch_tool maven maven/ KEYS maven-${MVN_VERSION%%.*}/${MVN_VERSION}/binaries/apache-maven-${MVN_VERSION}-bin tar.gz
