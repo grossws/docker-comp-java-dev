@@ -6,8 +6,8 @@ Based on `grossws/java` image.
 
 Current toolset:
 
-- [x] Apache Ant 1.10.0
-- [x] Apache Maven 3.3.9
+- [x] Apache Ant 1.10.1
+- [x] Apache Maven 3.5.0
 - [ ] Scala 2.11
 - [ ] SBT
 - [ ] Gradle
