@@ -138,17 +138,10 @@ if [ "$1" = "bootstrap-tools" ] ; then
   fetch_tool ant ant/ KEYS binaries/apache-ant-${ANT_VERSION}-bin tar.gz
   #fetch_tool ivy ant/ KEYS ivy/${IVY_VERSION}/apache-ivy-${IVY_VERSION}-bin-with-deps tar.gz
 
-  TOOLS_EXPORTS=/etc/profile.d/java-tools.sh
-  log INFO "writing exports to $TOOLS_EXPORTS"
+  log INFO "updating alternatives"
 
-  cat <<-EOF > $TOOLS_EXPORTS
-export MVN_HOME=/opt/maven
-export ANT_HOME=/opt/ant
-
-export PATH=\$ANT_HOME/bin:\$MVN_HOME/bin:\$PATH
-EOF
-
-  chmod +x $TOOLS_EXPORTS
+  alternatives --install /usr/bin/mvn mvn /opt/maven/bin/mvn 100
+  alternatives --install /usr/bin/ant ant /opt/ant/bin/ant 100
 
   log INFO "finished"
 
