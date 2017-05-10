@@ -70,18 +70,18 @@ fetch_tool() {
     exit 1
   fi
 
-  TARGET=$1
-  BASE_PATH=$2
-  KEYS_PATH=$3
-  TARGET_PATH=$4
-  TARGET_EXT=${5:-tar.gz}
+  local TARGET=$1
+  local BASE_PATH=$2
+  local KEYS_PATH=$3
+  local TARGET_PATH=$4
+  local TARGET_EXT=${5:-tar.gz}
 
-  DIST_DIR=/tmp/${TARGET}-dist
-  GPG_DIR=$DIST_DIR/gpg
-  TARGET_DIR=/opt/${TARGET}
+  local DIST_DIR=/tmp/${TARGET}-dist
+  local GPG_DIR=$DIST_DIR/gpg
+  local TARGET_DIR=/opt/${TARGET}
 
-  BASE_URL="https://www.apache.org/dist/"
-  ARCHIVE_URL="https://archive.apache.org/dist/"
+  local BASE_URL="https://www.apache.org/dist/"
+  local ARCHIVE_URL="https://archive.apache.org/dist/"
 
   log INFO "installing ${TARGET}"
 
@@ -95,21 +95,21 @@ fetch_tool() {
 
 
   # import gpg keys
-  KEYS_FULL_PATH="${BASE_PATH}${KEYS_PATH}"
-  KEYS_URL="${BASE_URL}${KEYS_FULL_PATH}"
-  ARCHIVE_KEYS_URL="${ARCHIVE_URL}${KEYS_FULL_PATH}"
-  KEYS_FILE="${DIST_DIR}/KEYS"
+  local KEYS_FULL_PATH="${BASE_PATH}${KEYS_PATH}"
+  local KEYS_URL="${BASE_URL}${KEYS_FULL_PATH}"
+  local ARCHIVE_KEYS_URL="${ARCHIVE_URL}${KEYS_FULL_PATH}"
+  local KEYS_FILE="${DIST_DIR}/KEYS"
   remote_try_fetch "${KEYS_FILE}" "${KEYS_URL}" "${ARCHIVE_KEYS_URL}"
   import_gpg_keys "${GPG_DIR}" "${KEYS_FILE}"
 
 
   log INFO "fetching archives"
   # fetching archive and signature
-  TARGET_FULL_PATH="${BASE_PATH}${TARGET_PATH}.${TARGET_EXT}"
-  MIRROR_TARGET_URL="$(nearest ${TARGET_FULL_PATH})"
-  TARGET_URL="${BASE_URL}${TARGET_FULL_PATH}"
-  ARCHIVE_TARGET_URL="${ARCHIVE_URL}${TARGET_FULL_PATH}"
-  TARGET_FILE="${DIST_DIR}/${TARGET}.${TARGET_EXT}"
+  local TARGET_FULL_PATH="${BASE_PATH}${TARGET_PATH}.${TARGET_EXT}"
+  local MIRROR_TARGET_URL="$(nearest ${TARGET_FULL_PATH})"
+  local TARGET_URL="${BASE_URL}${TARGET_FULL_PATH}"
+  local ARCHIVE_TARGET_URL="${ARCHIVE_URL}${TARGET_FULL_PATH}"
+  local TARGET_FILE="${DIST_DIR}/${TARGET}.${TARGET_EXT}"
 
   remote_try_fetch "${TARGET_FILE}" "${MIRROR_TARGET_URL}" "${TARGET_URL}" "${ARCHIVE_TARGET_URL}"
   remote_try_fetch "${TARGET_FILE}.asc" "${MIRROR_TARGET_URL}.asc" "${TARGET_URL}.asc" "${ARCHIVE_TARGET_URL}.asc"
