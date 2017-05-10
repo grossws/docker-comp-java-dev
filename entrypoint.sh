@@ -136,7 +136,6 @@ if [ "$1" = "bootstrap-tools" ] ; then
 
   fetch_tool maven maven/ KEYS maven-${MVN_VERSION%%.*}/${MVN_VERSION}/binaries/apache-maven-${MVN_VERSION}-bin tar.gz
   fetch_tool ant ant/ KEYS binaries/apache-ant-${ANT_VERSION}-bin tar.gz
-  #fetch_tool ivy ant/ KEYS ivy/${IVY_VERSION}/apache-ivy-${IVY_VERSION}-bin-with-deps tar.gz
 
   log INFO "updating alternatives"
 
