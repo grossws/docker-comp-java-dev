@@ -1,6 +1,8 @@
 FROM grossws/java
 MAINTAINER Konstantin Gribov <grossws@gmail.com>
 
+ENV JAVA_HOME /usr/lib/jvm/java-1.8.0-openjdk
+
 COPY entrypoint.sh /
 
 RUN yum -y install java-1.8.0-openjdk-devel which \
