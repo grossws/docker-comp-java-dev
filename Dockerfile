@@ -5,7 +5,7 @@ ENV JAVA_HOME /usr/lib/jvm/java-1.8.0-openjdk
 
 COPY entrypoint.sh /
 
-RUN yum -y install java-1.8.0-openjdk-devel which \
+RUN yum -y install java-1.8.0-openjdk-devel which git \
   && useradd --home-dir /app --gid users --no-create-home --no-user-group dev \
   && /entrypoint.sh bootstrap-tools \
   && /entrypoint.sh cleanup-tools \
