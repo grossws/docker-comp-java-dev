@@ -1,7 +1,7 @@
 FROM grossws/java
 MAINTAINER Konstantin Gribov <grossws@gmail.com>
 
-ADD entrypoint.sh /
+COPY entrypoint.sh /
 
 RUN yum -y install java-1.8.0-openjdk-devel which \
   && useradd --home-dir /app --gid users --no-create-home --no-user-group dev \
